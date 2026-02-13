@@ -88,7 +88,7 @@ const PROMOS = {
         max: 1,
         sabores: ["Pierna Enchilada", "Cochinita Pibil"],
         incluyeagua: true,
-        img: "img/PaqueteToston.jpeg"
+        img: "img/promotoston.jpeg"
     },
     "paquete-taquero": {
         nombre: "Paquete Taquero",
@@ -97,7 +97,7 @@ const PROMOS = {
         max: 4,
 sabores: ["Cochinita Pibil", "Pollo Pibil", "Pierna Enchilada", "Chorizo","Choriqueso","Huevo con Chorizo", "Chorizo Argentino","Choripapa"],
         incluyeagua: true,
-        img: "img/PaqueteTaquero.jpeg"
+        img: "img/promotacos.jpeg"
     },
     "paquete-familiar": {
         nombre: "Paquete Familiar",
@@ -106,7 +106,7 @@ sabores: ["Cochinita Pibil", "Pollo Pibil", "Pierna Enchilada", "Chorizo","Chori
         max: 6,
         sabores: ["Cochinita Pibil", "Pollo Pibil", "Pierna Enchilada", "Chorizo","Choriqueso","Huevo con Chorizo", "Chorizo Argentino","Choripapa","Jamon Envinado","Queso Panela"],
         incluyeagua: false,
-        img: "img/PaqueteFamiliar.jpeg"
+        img: "img/promo1.jpg"
     },
     "martes-pambacero": {
         nombre: "Martes Pambacero",
@@ -115,7 +115,7 @@ sabores: ["Cochinita Pibil", "Pollo Pibil", "Pierna Enchilada", "Chorizo","Chori
         max: 2,
 sabores: ["Cochinita Pibil", "Pollo Pibil", "Pierna Enchilada", "Chorizo","Choriqueso","Huevo con Chorizo", "Chorizo Argentino","Choripapa","Jamon Envinado","Queso Panela"],
         incluyeagua: true,
-        img: "img/MartesPambacero.jpeg"
+        img: "img/promo-pambazo.jpg"
     },
     "lunes-jueves": {
         nombre: "Promo Lunes y Jueves",
@@ -124,7 +124,7 @@ sabores: ["Cochinita Pibil", "Pollo Pibil", "Pierna Enchilada", "Chorizo","Chori
         max: 2,
         sabores: ["Cochinita Pibil", "Pollo Pibil", "Pierna Enchilada", "Chorizo","Choriqueso","Huevo con Chorizo", "Chorizo Argentino","Choripapa","Jamon Envinado","Queso Panela"],
         incluyeagua: true,
-        img: "img/LunesJueves.jpeg"
+        img: "img/promo-tortas.jpg"
     }
 };
 
