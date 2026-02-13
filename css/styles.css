@@ -1,0 +1,1469 @@
+/* Importación de fuente moderna */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- HEADER Y NAVEGACIÓN --- */
+header {
+    background: linear-gradient(135deg, #8b0000 0%, #a00000 100%);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.logo {
+    width: 100px;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover, nav ul li a.activo {
+    color: #fff;
+    border-bottom: 2px solid white;
+}
+
+/* --- SECCIONES Y TÍTULOS --- */
+section {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #8b0000;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: #8b0000;
+    border-radius: 2px;
+}
+
+.categoria {
+    margin-top: 30px;
+    font-size: 1.4rem;
+}
+
+/* --- PRODUCTOS Y TARJETAS --- */
+.productos.horizontal {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 5px;
+    /* Ocultar scrollbar en algunos navegadores */
+    -webkit-overflow-scrolling: touch;
+}
+
+.productos.horizontal::-webkit-scrollbar {
+    height: 6px;
+}
+
+.productos.horizontal::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.producto {
+    min-width: 240px;
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.producto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(139,0,0,0.1);
+}
+
+.producto img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.producto h4 {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.producto p {
+    color: #a00000;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+/* --- CONTADORES --- */
+.contador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.contador button {
+    background: #f0f0f0;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background 0.2s;
+}
+
+.contador button:hover {
+    background: #e0e0e0;
+}
+
+.cant-num {
+    font-weight: 700;
+    font-size: 1.1rem;
+    min-width: 25px;
+}
+
+/* --- MODAL (DISEÑO APP PREMIUM) --- */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    border-radius: 25px;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalEntrada 0.4s ease-out;
+}
+
+@keyframes modalEntrada {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.decoracion-titulo {
+    height: 4px;
+    background: linear-gradient(90deg, #a00000, transparent);
+    margin: 10px 0 20px;
+    border-radius: 2px;
+}
+
+.sabores-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.opcion-sabor-cantidad {
+    background: #f8f9fa;
+    border: 1px solid #eee;
+    padding: 12px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.controles-promo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.controles-promo button {
+    background: #a00000;
+    color: white;
+    border: none;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* SECCIÓN AGUA (OPCIÓN 2 REFORZADA) */
+.agua-container {
+    border: 2px solid #a00000;
+    background: #fffafa;
+    padding: 15px;
+    border-radius: 18px;
+    margin-top: 20px;
+}
+
+.agua-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.agua-header h4 { margin: 0; color: #a00000; }
+
+.select-moderno {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    background: white;
+    outline: none;
+}
+
+
+
+#carrito-container.active {
+    right: 0;
+}
+
+/* Header del carrito con botón de cerrar */
+.ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.ticket-header h3 {
+    margin: 0;
+    color: #8b0000;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+/* ✅ BOTÓN DE CERRAR - AHORA SÍ EXISTE */
+.btn-cerrar-carrito {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    color: #666;
+    cursor: pointer;
+    padding: 0 10px;
+    transition: color 0.2s;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-cerrar-carrito:hover {
+    color: #a00000;
+}
+
+/* Lista del carrito */
+#lista-carrito {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/* Items del carrito */
+.item-carrito {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.item-info {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.item-info strong {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.item-info small {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.item-acciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.item-contador {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #f8f9fa;
+    padding: 5px 10px;
+    border-radius: 30px;
+}
+
+.btn-contador-mini {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: #a00000;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-contador-mini:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.cantidad-actual {
+    font-weight: 700;
+    min-width: 25px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.btn-eliminar-item {
+    background: none;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.precio-item {
+    font-weight: 700;
+    color: #a00000;
+    margin-top: 5px;
+    font-size: 1.1rem;
+}
+
+/* Footer del carrito */
+.ticket-footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px dashed #ddd;
+}
+
+.total-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+#total-carrito {
+    color: #a00000;
+    font-size: 1.4rem;
+}
+
+/* Botones */
+.btn-vaciar, .btn-principal {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-vaciar {
+    background: transparent;
+    color: #dc3545;
+    border: 2px solid #dc3545;
+}
+
+.btn-principal {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+}
+
+.btn-vaciar:active, .btn-principal:active {
+    transform: scale(0.98);
+}
+
+
+/* === CARRITO - VERSIÓN ÚNICA Y CORRECTA === */
+#carrito-container.flotante {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 350px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    z-index: 2000;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+#carrito-container.active {
+    right: 0;
+}
+
+/* Versión móvil - UNA SOLA REGLA */
+@media (max-width: 768px) {
+    #carrito-container.flotante {
+        width: 85%;
+        border-radius: 20px 0 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #carrito-container.flotante {
+        width: 90%;
+    }
+}
+
+/* Botón flotante del carrito */
+#btn-carrito {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 65px;
+    height: 65px;
+    background: #a00000;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 15px rgba(160, 0, 0, 0.4);
+    cursor: pointer;
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#contador-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #25D366;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: 2px solid white;
+}
+
+/* Eliminar TODAS las otras definiciones de #carrito-container */
+/* --- BOTONES DEL MODAL (ESTILO PROFESIONAL) --- */
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.btn-cancelar {
+    flex: 1;
+    background: #f8f9fa;
+    color: #666;
+    border: 1px solid #ddd;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-cancelar:hover {
+    background: #e9ecef;
+    color: #333;
+}
+
+.btn-confirmar-oso {
+    flex: 2;
+    background: linear-gradient(135deg, #a00000 0%, #7a0000 100%);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(160, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-confirmar-oso:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(160, 0, 0, 0.3);
+}
+
+/* --- ESTILOS PROFESIONALES PARA EL INDEX.HTML --- */
+
+/* Hero Section (La primera impresión) */
+.hero-oso {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('../img/hero-fondo.jpg') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.hero-oso h1 {
+    font-size: 3.5rem;
+    margin: 0;
+    text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
+    animation: fadeInDown 1s ease;
+}
+
+.hero-oso p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    max-width: 600px;
+    opacity: 0.9;
+}
+
+/* Tarjetas de Categoría en el Index */
+.seccion-inicio {
+    padding: 60px 20px;
+    background: #fff;
+    text-align: center;
+}
+
+.grid-categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.card-categoria {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 250px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.card-categoria img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    color: white;
+    text-align: left;
+}
+
+.card-categoria:hover img { transform: scale(1.1); }
+
+/* Animaciones */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* --- MEJORAS INDEX --- */
+.main-header {
+    background: linear-gradient(rgba(139, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), 
+                url('../img/hero-fondo.jpg') center/cover;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.logo-index {
+    width: 120px;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+}
+
+.titulo-index {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+.nav-index {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: white;
+    padding: 10px 25px;
+    border: 2px solid white;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-btn.activo, .nav-btn:hover {
+    background: white;
+    color: #8b0000;
+}
+
+/* --- CARDS DE PROMO MEJORADAS --- */
+.promos-seccion {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.titulo-seccion {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    border: none;
+}
+
+.subtitulo-seccion {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.promo-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.4s;
+    height: 100%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.promo-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 35px rgba(139,0,0,0.15);
+}
+
+.img-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.precio-float {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: #8b0000;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-body h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+/* --- CTA SECCIÓN --- */
+.cta-moderno {
+    background: #8b0000;
+    padding: 80px 20px;
+    text-align: center;
+    color: white;
+    clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+    margin: 40px 0;
+}
+
+.btn-cta {
+    display: inline-block;
+    background: white;
+    color: #8b0000;
+    padding: 18px 45px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin-top: 25px;
+    transition: 0.3s;
+}
+
+.btn-cta:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+/* Contenedor de las tarjetas */
+.promo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 20px;
+}
+
+/* La Tarjeta */
+.promo-card {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #f0f0f0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.promo-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(139, 0, 0, 0.15);
+}
+
+/* Imagen de la promo */
+.promo-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Cuerpo de la tarjeta */
+.promo-card h3 {
+    margin: 15px 15px 5px;
+    font-size: 1.3rem;
+    color: #333;
+}
+
+.promo-card p {
+    margin: 0 15px 20px;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* El Precio (El círculo rojo que se ve en tu imagen) */
+.promo-card span {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #8b0000;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+/* Contenedor principal del Hero */
+.hero-oso-container {
+    width: 100%;
+    max-width: 1200px; /* O el ancho que prefieras */
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 20px; /* Bordes redondeados profesionales */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.hero-main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-img-full {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Efecto al pasar el mouse por la imagen */
+.hero-oso-container:hover .hero-img-full {
+    transform: scale(1.02);
+}
+
+/* Posicionamiento del botón sobre la imagen */
+.hero-overlay-button {
+    position: absolute;
+    bottom: 10%; /* Lo ajusta a la altura del botón de la imagen */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-pide-ahora {
+    background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+    color: white;
+    text-decoration: none;
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    font-weight: 900;
+    border-radius: 50px;
+    box-shadow: 0 8px 25px rgba(255, 75, 43, 0.4);
+    transition: all 0.3s ease;
+    border: 3px solid rgba(255,255,255,0.2);
+    text-transform: uppercase;
+}
+
+/* Animación del botón */
+.btn-pide-ahora:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 12px 30px rgba(255, 75, 43, 0.6);
+    filter: brightness(1.1);
+}
+
+.btn-pide-ahora:active {
+    transform: scale(0.95);
+}
+
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+    .btn-pide-ahora {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+}
+/* Contenedor que ocupa todo el ancho de la pantalla */
+.hero-full-width {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
+    background: #000; /* Fondo negro por si la imagen tarda en cargar */
+}
+
+.hero-wrapper {
+    position: relative;
+    width: 100%;
+    /* Ajusta este porcentaje para controlar qué tan alta se ve la imagen */
+    /* 40% hará que sea ancha pero no muy larga hacia abajo */
+    padding-top: 45%; 
+}
+
+.hero-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esto hace que la imagen llene el espacio sin deformarse */
+    object-position: center top; /* Enfoca la parte superior (donde está el texto de la imagen) */
+    display: block;
+}
+
+/* El Botón flotante */
+.hero-overlay {
+    position: absolute;
+    bottom: 12%; /* Ajusta según el diseño de tu imagen original */
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+.btn-hero-pide {
+    background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+    color: white;
+    text-decoration: none;
+    padding: 12px 35px;
+    font-size: clamp(1rem, 4vw, 1.8rem); /* Tamaño de fuente que se ajusta al dispositivo */
+    font-weight: 900;
+    border-radius: 50px;
+    box-shadow: 0 8px 25px rgba(255, 75, 43, 0.5);
+    border: 2px solid rgba(255,255,255,0.3);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-transform: uppercase;
+}
+
+.btn-hero-pide:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+/* Eliminar el scroll horizontal que a veces causan los 100vw */
+body {
+    overflow-x: hidden;
+}
+/* Forzar el ancho total ignorando márgenes del padre */
+.hero-impacto {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    line-height: 0; /* Elimina espacio en blanco inferior */
+}
+
+.hero-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero-img-full {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    /* Ajustamos la altura máxima para que no haya que scrollear tanto */
+    max-height: 80vh; 
+}
+
+/* Contenedor del botón sobre la imagen */
+.hero-btn-wrapper {
+    position: absolute;
+    bottom: 8%; /* Ajusta esto para que coincida con el botón del dibujo */
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+/* Botón con estilo profesional y animado */
+.btn-pide-impacto {
+    background: linear-gradient(135deg, #e63946 0%, #a00000 100%);
+    color: white;
+    text-decoration: none;
+    padding: 15px 45px;
+    font-size: 1.6rem;
+    font-weight: 900;
+    border-radius: 50px;
+    text-transform: uppercase;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-pide-impacto:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 15px 35px rgba(160, 0, 0, 0.5);
+    filter: brightness(1.1);
+}
+
+/* Evitar que aparezca scroll horizontal molesto */
+body {
+    overflow-x: hidden;
+}
+.hero-impacto {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.hero-container {
+    width: 100%;
+    height: 60vh; /* Altura fija para que no ocupe toda la pantalla y se vea centrado */
+    position: relative;
+}
+
+.hero-img-full {
+    width: 100%;
+    height: 100%;
+    /* ESTO ES LO MÁS IMPORTANTE PARA EL CENTRADO */
+    object-fit: cover;      /* Llena el espacio sin deformar */
+    object-position: center; /* Mantiene al oso en el medio siempre */
+}
+
+.hero-btn-wrapper {
+    position: absolute;
+    bottom: 10%; /* Ajusta según el diseño de tu imagen */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 5;
+}
+
+.btn-pide-ahora {
+    background: linear-gradient(135deg, #e63946, #a00000);
+    color: white;
+    text-decoration: none;
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    font-weight: 900;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: 0.3s;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.btn-pide-ahora:hover {
+    transform: scale(1.1);
+}
+
+/* Evita que salga una barra de desplazamiento horizontal */
+body {
+    overflow-x: hidden;
+}
+/* Estenedor del Carrito Profesional */
+#carrito-container.flotante {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Oculto por defecto a la derecha */
+    width: 350px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+    transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 2000;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cuando el carrito está abierto */
+#carrito-container.active {
+    right: 0;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 480px) {
+    #carrito-container.flotante {
+        width: 85%; /* No abarca el 100% para que el usuario sienta que no dejó la página */
+        border-radius: 20px 0 0 20px;
+    }
+}
+
+/* Botón flotante para abrir el carrito */
+#btn-carrito {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 65px;
+    height: 65px;
+    background: #a00000;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    box-shadow: 0 8px 20px rgba(160, 0, 0, 0.4);
+    cursor: pointer;
+    z-index: 1500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+#btn-carrito:active {
+    transform: scale(0.9);
+}
+
+/* Indicador de cantidad en el botón */
+.badge-carrito {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #25D366;
+    color: white;
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-radius: 50%;
+    font-weight: bold;
+    border: 2px solid white;
+}
+
+ /* Contenedor con efecto de deslizamiento suave */
+#carrito-container.flotante {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Totalmente fuera de la pantalla a la derecha */
+    width: 350px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px); /* Efecto cristal más elegante */
+    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    z-index: 2000;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    
+    /* ESTA ES LA MAGIA DEL DESLIZADO */
+    transition: right 0.5s cubic-bezier(0.165, 0.84, 0.44, 1); 
+}
+
+/* Estado activo: el carrito entra a escena */
+#carrito-container.active {
+    right: 0;
+}
+
+/* Pequeña animación para que los items aparezcan uno tras otro (opcional) */
+#carrito-container.active .item-carrito {
+    animation: slideInItems 0.4s ease forwards;
+    opacity: 0;
+}
+
+@keyframes slideInItems {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+/* El botón de enviar "vibra" suavemente para llamar la atención */
+.btn-principal:hover {
+    animation: shake 0.5s ease-in-out infinite;
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(1deg); }
+    75% { transform: rotate(-1deg); }
+}
+#contador-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #25D366; /* Verde WhatsApp para resaltar */
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex; /* Centra el número */
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    transition: transform 0.2s ease;
+}
+.modal-header h2 {
+    margin: 0;
+    color: #8b0000;
+    font-size: 1.5rem;
+}
+
+.modal-header p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.campo-form label {
+    font-size: 0.85rem;
+    color: #444;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: 600;
+}
+
+.campo-form input, .campo-form textarea {
+    background: #fdfdfd;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 1rem;
+}
+
+.campo-form input:focus {
+    border-color: #a00000;
+    background: #fff;
+    box-shadow: 0 0 8px rgba(160, 0, 0, 0.1);
+}
+/* === EDITAR CARRITO === */
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-acciones {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    margin-left: 10px;
+}
+
+.item-contador {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f8f9fa;
+    padding: 4px;
+    border-radius: 25px;
+}
+
+.btn-contador-mini {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: none;
+    background: #a00000;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.btn-contador-mini:hover {
+    transform: scale(1.1);
+    background: #8b0000;
+}
+
+.btn-contador-mini:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.cantidad-actual {
+    font-weight: 700;
+    min-width: 25px;
+    text-align: center;
+}
+
+.btn-eliminar-item {
+    background: none;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-eliminar-item:hover {
+    background: #dc3545;
+    color: white;
+}
+
+.precio-item {
+    font-weight: 700;
+    color: #a00000;
+    margin-top: 4px;
+}
+
+/* Badge para editar promo */
+.badge-editar {
+    background: #ffc107;
+    color: #000;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-left: 5px;
+    border: none;
+}
+
+.badge-editar:hover {
+    background: #ffca2c;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .item-carrito {
+        flex-direction: column;
+    }
+    
+    .item-acciones {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        margin-left: 0;
+        margin-top: 8px;
+    }
+}
+/* === PARCHE DE EMERGENCIA PARA MÓVIL === */
+@media (max-width: 768px) {
+    /* Forzar carrito cerrado al inicio */
+    #carrito-container.flotante {
+        right: -100% !important;
+        display: flex !important;
+    }
+    
+    #carrito-container.flotante.active {
+        right: 0 !important;
+    }
+    
+    /* Botón de cerrar más grande para móvil */
+    .btn-cerrar-carrito {
+        font-size: 2.2rem !important;
+        padding: 0 15px !important;
+    }
+    
+    /* Evitar scroll del body cuando el carrito está abierto */
+    body.carrito-abierto {
+        overflow: hidden;
+    }
+}
+
+/* Botón flotante del carrito - siempre visible */
+#btn-carrito {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #a00000;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 15px rgba(160, 0, 0, 0.4);
+    cursor: pointer;
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#contador-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #25D366;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: 2px solid white;
+}
+/* ===== PARCHE DEFINITIVO PARA EL CARRITO ===== */
+#carrito-container,
+#carrito-container.flotante {
+    position: fixed !important;
+    top: 0 !important;
+    right: -100% !important;
+    left: auto !important;  /* ← ESTO CANCELA EL left: 5% */
+    width: 350px !important;
+    height: 100vh !important;
+    background: white !important;
+    z-index: 9999 !important;
+}
+
+#carrito-container.active,
+#carrito-container.flotante.active {
+    right: 0 !important;
+    left: auto !important;
+}
+
+@media (max-width: 768px) {
+    #carrito-container,
+    #carrito-container.flotante {
+        width: 85% !important;
+        left: auto !important;  /* ← CANCELACIÓN TOTAL */
+        right: -100% !important;
+        top: 0 !important;
+    }
+    
+    #carrito-container.active,
+    #carrito-container.flotante.active {
+        right: 0 !important;
+        left: auto !important;
+    }
+}

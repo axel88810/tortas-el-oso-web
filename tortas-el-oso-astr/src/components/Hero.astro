@@ -1,0 +1,87 @@
+---
+/* Puedes pasarle props si quieres cambiar el texto después, 
+  por ahora lo dejamos fijo para que sea idéntico a tu diseño.
+*/
+---
+<section class="hero-impacto">
+    <div class="hero-container">
+        <img src="/img/osoanimado.jpeg" alt="Tortas El Oso" class="hero-img-full" />
+        
+        <div class="hero-btn-wrapper">
+            <a href="/menu" class="btn-pide-impacto">¡PIDE AHORA!</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* 1. Forzar el ancho total ignorando márgenes de layouts superiores */
+    .hero-impacto {
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        line-height: 0;
+        overflow: hidden;
+        background-color: #000;
+    }
+
+    .hero-container {
+        position: relative;
+        width: 100%;
+        height: 65vh; /* Ajustado para que se vea mucho pero no obligue a tanto scroll */
+    }
+
+    .hero-img-full {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;      /* Llena el espacio sin deformar */
+        object-position: center; /* Mantiene al oso y el logo centrados siempre */
+        display: block;
+    }
+
+    /* 2. Contenedor del botón */
+    .hero-btn-wrapper {
+        position: absolute;
+        bottom: 10%; /* Lo posiciona justo sobre el botón del dibujo */
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        z-index: 10;
+    }
+
+    /* 3. Estilo del botón (Idéntico al que nos gustó) */
+    .btn-pide-impacto {
+        background: linear-gradient(135deg, #e63946 0%, #a00000 100%);
+        color: white;
+        text-decoration: none;
+        padding: 15px 45px;
+        font-size: 1.6rem;
+        font-weight: 900;
+        border-radius: 50px;
+        text-transform: uppercase;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        border: 3px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: pointer;
+    }
+
+    .btn-pide-impacto:hover {
+        transform: scale(1.1) translateY(-5px);
+        box-shadow: 0 15px 35px rgba(160, 0, 0, 0.5);
+        filter: brightness(1.1);
+    }
+
+    /* Responsivo para celulares */
+    @media (max-width: 768px) {
+        .hero-container {
+            height: 50vh; /* Un poco más pequeño en móviles */
+        }
+        .btn-pide-impacto {
+            padding: 12px 30px;
+            font-size: 1.2rem;
+        }
+    }
+</style>

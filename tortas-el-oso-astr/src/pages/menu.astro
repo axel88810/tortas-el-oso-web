@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProductCard from '../components/ProductCard.astro';
+
+// Aquí pegas el objeto "productos" que me mandaste
+const productos = {
+    tortas: [
+        { nombre: "Torta de Cochinita Pibil", precio: 39.5, img: "/img/TortaCochina22.jpeg" },
+        // ... el resto de tus tortas ...
+    ],
+    pambazos: [ /* ... tus pambazos ... */ ],
+    // etc...
+};
+---
+
+<Layout title="Menú Completo">
+    <section id="menu">
+        <h2>🥪 Nuestro Menú</h2>
+
+        {Object.keys(productos).map((categoria) => (
+            <>
+                <h3 class="categoria" id={categoria}>
+                    {categoria.toUpperCase()}
+                </h3>
+                <div class="productos horizontal">
+                                                         {productos[categoria].map((p) => (
+                        <ProductCard 
+                            nombre={p.nombre} 
+                            precio={p.precio} 
+                            img={p.img} 
+                        />
+                    ))}
+                </div>
+            </>
+        ))}
+    </section>
+
+    </Layout>

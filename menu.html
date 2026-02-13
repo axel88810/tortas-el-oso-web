@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú - Tortas El Oso</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+<header>
+  <img src="img/logooso1.jpg" alt="Logo Tortas El Oso" class="logo">
+  <h1>Menú de Tortas El Oso</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="menu.html" class="activo">Menú</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- MENÚ -->
+<section id="menu">
+  <h2>Menú</h2>
+
+  <!-- TORTAS -->
+  <h3 class="categoria" id="tortas">🥪 Tortas</h3>
+  <div class="productos horizontal" id="lista-tortas"></div>
+
+  <!-- PAMBAZOS -->
+  <h3 class="categoria" id="pambazos">🥖 Pambazos</h3>
+  <div class="productos horizontal" id="lista-pambazos"></div>
+
+  <!-- MOLLETES -->
+  <h3 class="categoria" id="molletes">🥖 Molletes</h3>
+  <div class="productos horizontal" id="lista-molletes"></div>
+
+  <!-- BEBIDAS -->
+  <h3 class="categoria" id="bebidas">🥤 Bebidas</h3>
+  <div class="productos horizontal" id="lista-bebidas"></div>
+
+  <!-- POSTRES -->
+  <h3 class="categoria" id="postres">🍰 Postres</h3>
+  <div class="productos horizontal" id="lista-postres"></div>
+
+  <!-- PAQUETES -->
+<h3 class="categoria" id="promos">📦 Paquetes</h3>
+<div id="lista-paquetes" class="productos horizontal"></div>
+
+
+
+<!-- TACOS -->
+<h3 class="categoria" id="tacos">🌮 Tacos</h3>
+<div class="productos horizontal" id="lista-tacos"></div>
+
+
+</section>
+
+<!-- CARRITO - VERSIÓN CORREGIDA CON BOTÓN DE CERRAR -->
+<div id="carrito-container" class="flotante">
+    <div class="ticket-header">
+        <h3>🧾 Tu Pedido</h3>
+        <!-- ✅ AGREGAR BOTÓN DE CERRAR -->
+        <button class="btn-cerrar-carrito" onclick="cerrarCarrito()" aria-label="Cerrar carrito">×</button>
+    </div>
+    
+    <ul id="lista-carrito"></ul>
+    
+    <div class="ticket-footer">
+        <div class="total-line">
+            <span>TOTAL:</span>
+            <strong id="total-carrito">$0.00</strong>
+        </div>
+    </div>
+    
+    <button type="button" class="btn-vaciar" onclick="vaciarCarrito()">
+        🗑️ Limpiar Carrito
+    </button>
+    
+    <button type="button" class="btn-principal" onclick="prepararEnvio()">
+        📱 Enviar Pedido
+    </button>
+</div>
+
+<!-- BOTÓN CARRITO -->
+<button id="btn-carrito" class="btn-flotante-oso">
+    🛒 <span id="contador-badge">0</span>
+</button>
+
+
+
+<!-- PEDIDO -->
+
+<footer>
+  <p>&copy; 2025 Tortas El Oso. Todos los derechos reservados.</p>
+</footer>
+
+<div id="modalSabores" class="modal">
+  <div class="modal-content">
+    <h2 id="tituloPromo">Elige tus sabores</h2>
+    <hr class="separador-red"> 
+    <p id="textoLimite"></p>
+    <div id="listaSabores" class="sabores-grid"></div>
+    <div id="seccion-agua" class="agua-container" style="display:none;">
+      <h4>🥤 Elige el sabor del agua</h4>
+      <select id="sabor-agua" class="select-moderno">
+        <option value="">Selecciona un sabor</option>
+        <option value="Jamaica">Jamaica</option>
+        <option value="Horchata">Horchata</option>
+        <option value="Tamarindo">Tamarindo</option>
+        <option value="Piña colada">Piña colada</option>
+      </select>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
+      <button class="btn-confirmar-solid" onclick="confirmarSabores()">Confirmar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL FORMULARIO - CORREGIDO -->
+<div id="modal-formulario" class="modal" style="display: none;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>📋 Finalizar Pedido</h2>
+            <p class="subtitulo-form">Introduce tus datos para el envío</p>
+            <div class="decoracion-titulo"></div>
+        </div>
+        
+        <!-- ✅ IMPORTANTE: FORM con ID y onsubmit -->
+        <form id="formulario-pedido-pro" onsubmit="enviarWhatsApp(event)">
+            <div class="campo-form">
+                <label>👤 Nombre Completo</label>
+                <input type="text" id="nombre-cliente" placeholder="Tu nombre" required>
+            </div>
+            
+            <div class="campo-form">
+                <label>📱 Teléfono</label>
+                <input type="tel" id="telefono-cliente" placeholder="272 123 4567" required>
+            </div>
+            
+            <div class="campo-form">
+                <label>📍 Dirección de Entrega</label>
+                <input type="text" id="direccion-cliente" placeholder="Calle, número y colonia" required>
+            </div>
+            
+            <div class="campo-form">
+                <label>📝 Notas especiales</label>
+                <textarea id="observaciones" rows="2" placeholder="Ej: Sin cebolla, tocar timbre..."></textarea>
+            </div>
+            
+            <!-- ✅ BOTONES DENTRO DEL FORM -->
+            <div class="modal-actions">
+                <button type="button" class="btn-cancelar" onclick="cerrarFormulario()">Cancelar</button>
+                <button type="submit" class="btn-confirmar-oso">📱 Pedir por WhatsApp</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
+<!-- PARCHE FINAL PARA EL CARRITO -->
+<script>
+    (function() {
+        console.log('🔥 ACTIVANDO PARCHE FINAL DEL CARRITO');
+        
+        // Forzar estilos correctos
+        function corregirCarrito() {
+            const cart = document.getElementById('carrito-container');
+            if (cart) {
+                cart.style.position = 'fixed';
+                cart.style.top = '0';
+                cart.style.right = '-100%';
+                cart.style.left = 'auto';
+                cart.style.width = window.innerWidth <= 768 ? '85%' : '350px';
+                cart.classList.remove('active');
+            }
+        }
+        
+        // Ejecutar inmediatamente
+        corregirCarrito();
+        
+        // Ejecutar después de cargar
+        window.addEventListener('load', corregirCarrito);
+        
+        // Ejecutar cada 300ms por 3 segundos
+        let count = 0;
+        const interval = setInterval(function() {
+            corregirCarrito();
+            count++;
+            if (count > 10) clearInterval(interval);
+        }, 300);
+        
+        // También al cambiar tamaño de pantalla
+        window.addEventListener('resize', corregirCarrito);
+    })();
+</script>
