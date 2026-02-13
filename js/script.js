@@ -29,9 +29,9 @@ const productos = {
     bebidas: [
         { nombre: "Agua de Jamaica", precio: 25, img: "img/Aguajamaica.jpeg" },
         { nombre: "Agua de Horchata", precio: 25, img: "img/aguaHorchata.jpeg" },
-        { nombre: "Agua de Tamarindo", precio: 25, img: "img/aguaHorchata.jpg" },
-        { nombre: "Agua de Piña Colada", precio: 25, img: "img/aguaHorchata.jpg" },
-        { nombre: "Agua Embotellado", precio: 15, img: "img/agua.jpg" },
+        { nombre: "Agua de Tamarindo", precio: 25, img: "img/aguaHorchata.jpeg" },
+        { nombre: "Agua de Piña Colada", precio: 25, img: "img/aguaHorchata.jpeg" },
+        { nombre: "Agua Embotellado", precio: 15, img: "img/agua.jpeg" },
         { nombre: "Arizona", precio: 34, img: "img/Arizona.jpg" },
         { nombre: "Refresco(600 ml)", precio: 34, img: "img/Coca.jpeg" },
         { nombre: "Cerveza de Raíz", precio: 35, img: "img/refresco.jpg" },
