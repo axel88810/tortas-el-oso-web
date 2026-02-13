@@ -34,7 +34,7 @@ const productos = {
         { nombre: "Agua Embotellado", precio: 15, img: "img/agua.jpeg" },
         { nombre: "Arizona", precio: 34, img: "img/Arizona.jpg" },
         { nombre: "Refresco(600 ml)", precio: 34, img: "img/Coca.jpeg" },
-        { nombre: "Cerveza de Raíz", precio: 35, img: "img/Cervvezaraiz.jpg" },
+        { nombre: "Cerveza de Raíz", precio: 35, img: "img/Cervezaraiz.jpg" },
         { nombre: "Cafe Americano", precio: 35, img: "img/cafe.jpg" },
         { nombre: "Licuado de Fresa", precio: 35, img: "img/Licuadofresa.jpeg" },
         { nombre: "Licuado de Platano", precio: 35, img: "img/Licuadoplatano.jpeg" },
